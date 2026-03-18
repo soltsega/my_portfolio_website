@@ -991,16 +991,6 @@ textarea.glass-input {
         max-width: 250px;
     }
 
-    .theme-toggle {
-        bottom: 1.5rem;
-        right: 1.5rem;
-        width: 56px;
-        height: 56px;
-    }
-
-    .theme-icon {
-        font-size: 1.3rem;
-    }
 }
 
 @media (max-width: 480px) {
@@ -1126,17 +1116,6 @@ textarea.glass-input {
         padding: 0.875rem 1.5rem;
     }
 
-    .theme-toggle {
-        width: 52px;
-        height: 52px;
-        bottom: 1rem;
-        right: 1rem;
-    }
-
-    .theme-icon {
-        font-size: 1.2rem;
-    }
-
     .footer {
         padding: 3rem 0;
         font-size: 0.9rem;
@@ -1216,10 +1195,6 @@ textarea.glass-input {
         font-size: 0.9rem;
     }
 
-    .theme-toggle {
-        width: 48px;
-        height: 48px;
-    }
 }
 
 /* Reduced motion support */
@@ -1263,63 +1238,7 @@ textarea.glass-input {
     outline-offset: 2px;
 }
 
-/* Dark mode toggle */
-.theme-toggle {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: var(--card-bg);
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 999;
-}
-
-.theme-toggle:hover {
-    transform: scale(1.1);
-    border-color: var(--accent-primary);
-}
-
-.theme-toggle:focus {
-    outline: 2px solid var(--accent-primary);
-    outline-offset: 2px;
-}
-
-.theme-icon {
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-}
-
-/* Dark mode variables */
-[data-theme="dark"] {
-    --bg-color: hsl(222, 47%, 11%);
-    --card-bg: hsla(222, 47%, 15%, 0.7);
-    --text-main: hsl(210, 40%, 98%);
-    --text-dim: hsl(215, 20%, 65%);
-    --accent-primary: hsl(190, 100%, 50%);
-    --accent-secondary: hsl(280, 100%, 70%);
-    --glass-border: hsla(210, 40%, 98%, 0.1);
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-}
-
-/* Light mode variables */
-[data-theme="light"] {
-    --bg-color: hsl(210, 40%, 98%);
-    --card-bg: hsla(210, 40%, 95%, 0.7);
-    --text-main: hsl(222, 47%, 11%);
-    --text-dim: hsl(215, 20%, 35%);
-    --accent-primary: hsl(190, 100%, 40%);
-    --accent-secondary: hsl(280, 100%, 60%);
-    --glass-border: hsla(222, 47%, 11%, 0.1);
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-}
+/* Default Dark Theme variables already defined in :root */
 
 /* Smooth theme transition */
 * {
@@ -1340,7 +1259,6 @@ textarea:focus {
 
     .navbar,
     .mobile-menu-btn,
-    .theme-toggle,
     .contact-form,
     .contact-links,
     .footer {
