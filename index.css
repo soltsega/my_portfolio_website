@@ -296,6 +296,13 @@ ul {
     font-weight: 700;
     font-size: 1.5rem;
     letter-spacing: 2px;
+    color: #ffffff;
+}
+
+.logo span {
+    background: none;
+    -webkit-text-fill-color: initial;
+    color: #ffffff;
 }
 
 .nav-links {
