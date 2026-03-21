@@ -115,6 +115,184 @@ ul {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* High-Impact Credentials Section */
+#credentials {
+    background: linear-gradient(180deg, var(--bg-color) 0%, #080808 100%);
+}
+
+.kaim-feature {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem;
+    margin-bottom: 4rem;
+    border: 1px solid rgba(251, 191, 36, 0.15);
+}
+
+.kaim-hero {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 2.5rem;
+    height: 500px;
+}
+
+.kaim-main {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--glass-border);
+}
+
+.kaim-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #111;
+}
+
+.kaim-details-container {
+    position: relative;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.kaim-details-scroll {
+    overflow-y: auto;
+    flex: 1;
+    padding: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-primary) transparent;
+}
+
+.kaim-details-scroll::-webkit-scrollbar {
+    width: 4px;
+}
+
+.kaim-details-scroll::-webkit-scrollbar-thumb {
+    background: var(--accent-primary);
+    border-radius: 10px;
+}
+
+.kaim-details-scroll img {
+    width: 100%;
+    height: auto;
+}
+
+.scroll-hint {
+    padding: 0.75rem;
+    background: rgba(251, 191, 36, 0.1);
+    color: var(--accent-primary);
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-top: 1px solid rgba(251, 191, 36, 0.1);
+}
+
+.kaim-info {
+    text-align: center;
+}
+
+.kaim-info h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+    color: var(--accent-primary);
+}
+
+.kaim-info p {
+    color: var(--text-dim);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Credentials Grid */
+.credentials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.credential-card {
+    padding: 1rem;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.credential-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-primary);
+}
+
+.credential-img {
+    aspect-ratio: 4/3;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+    background: #111;
+    border: 1px solid var(--glass-border);
+}
+
+.credential-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.credential-card:hover .credential-img img {
+    transform: scale(1.05);
+}
+
+.credential-info {
+    padding: 0.5rem;
+}
+
+.credential-info h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    color: var(--text-main);
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--accent-muted);
+    color: var(--accent-primary);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 992px) {
+    .kaim-hero {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .kaim-details-scroll {
+        max-height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .kaim-feature {
+        padding: 1.5rem;
+    }
+    .kaim-info h3 {
+        font-size: 1.5rem;
+    }
+}
+
 /* Container */
 .container {
     max-width: 1200px;
