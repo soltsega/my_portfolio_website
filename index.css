@@ -1509,3 +1509,89 @@ textarea:focus {
 .slide-in-right {
     animation: slideInRight 0.8s ease-out;
 }
+
+/* Certifications Page Specific Styles */
+.credentials-hero {
+    text-align: center;
+    padding: 6rem 0 3rem;
+}
+
+.cert-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    padding: 4rem 0;
+}
+
+.cert-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+
+.cert-row.active {
+    opacity: 1;
+}
+
+.cert-row:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.cert-desc {
+    flex: 1;
+    max-width: 500px;
+}
+
+.cert-desc h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-primary);
+}
+
+.cert-desc ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+    color: var(--text-dim);
+}
+
+.cert-desc ul li {
+    margin-bottom: 0.75rem;
+}
+
+.cert-img {
+    flex: 1;
+    max-width: 600px;
+}
+
+.cert-img img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    transition: transform 0.3s ease;
+}
+
+.cert-img img:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 950px) {
+    .cert-row, .cert-row:nth-child(even) {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .cert-desc {
+        max-width: 100%;
+    }
+
+    .cert-desc ul {
+        display: inline-block;
+        text-align: left;
+    }
+}
