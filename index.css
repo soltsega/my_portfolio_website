@@ -1513,30 +1513,72 @@ textarea:focus {
 /* Certifications Page Specific Styles */
 .credentials-hero {
     text-align: center;
-    padding: 6rem 0 3rem;
+    padding: 6rem 0 2rem;
 }
+
+.cert-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+}
+
+.cert-tab-btn {
+    padding: 0.75rem 1.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-dim);
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cert-tab-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: var(--text-light);
+    transform: translateY(-2px);
+}
+
+.cert-tab-btn.active {
+    background: var(--gradient-primary);
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 4px 20px rgba(184, 134, 11, 0.3);
+}
+
 
 .cert-container {
     display: flex;
     flex-direction: column;
     gap: 6rem;
-    padding: 4rem 0;
+    padding: 2rem 0 6rem;
 }
 
 .cert-row {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     gap: 4rem;
     opacity: 0;
-    transition: all 0.8s ease;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cert-row.visible {
+    display: flex;
 }
 
 .cert-row.active {
     opacity: 1;
 }
 
-.cert-row:nth-child(even) {
+/* Use .reverse class instead of nth-child for filtered alternating rows */
+.cert-row.reverse {
     flex-direction: row-reverse;
 }
 
@@ -1580,7 +1622,7 @@ textarea:focus {
 }
 
 @media (max-width: 950px) {
-    .cert-row, .cert-row:nth-child(even) {
+    .cert-row, .cert-row.reverse {
         flex-direction: column;
         text-align: center;
         gap: 2rem;

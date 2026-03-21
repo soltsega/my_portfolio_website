@@ -182,6 +182,62 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
+    // Credentials Tab Filtering
+    const certTabs = document.querySelectorAll('.cert-tab-btn');
+    const certRows = document.querySelectorAll('.cert-row');
+    
+    if (certTabs.length > 0 && certRows.length > 0) {
+        certTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const category = tab.getAttribute('data-category');
+                
+                // Update active tab state
+                certTabs.forEach(t => {
+                    t.classList.remove('active');
+                    t.setAttribute('aria-selected', 'false');
+                });
+                tab.classList.add('active');
+                tab.setAttribute('aria-selected', 'true');
+                
+                filterCredentials(category);
+                
+                // Add haptic feedback on touch devices
+                if (isTouchDevice && navigator.vibrate) {
+                    navigator.vibrate(30);
+                }
+            });
+        });
+        
+        function filterCredentials(category) {
+            let visibleIndex = 0;
+            certRows.forEach(row => {
+                // Remove all functional classes
+                row.classList.remove('visible', 'active', 'reverse');
+                
+                if (row.getAttribute('data-category') === category) {
+                    row.classList.add('visible');
+                    
+                    // Re-apply alternating directions (row-reverse) for currently visible rows
+                    if (visibleIndex % 2 !== 0) {
+                        row.classList.add('reverse');
+                    }
+                    visibleIndex++;
+                    
+                    // Trigger reveal animation after a short delay for smooth appearance
+                    setTimeout(() => {
+                        row.classList.add('active');
+                    }, 50);
+                }
+            });
+            
+            // Re-run the IntersectionObserver to catch newly visible elements if needed
+            // However, since we manually add 'active' with a delay, we control it here.
+        }
+        
+        // Initialize the default tab (work) if on the credentials page
+        filterCredentials('work');
+    }
+    
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
