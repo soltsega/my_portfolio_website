@@ -181,6 +181,82 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
+
+    // Home Page Credential Filtering
+    const credFilterButtons = document.querySelectorAll('.cred-filter-btn');
+    const credCards = document.querySelectorAll('.credential-card');
+    const kaimFeature = document.querySelector('.kaim-feature');
+
+    if (credFilterButtons.length > 0) {
+        // Initialize: Show 'work' by default for home page
+        filterHomeCredentials('work');
+
+        credFilterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.getAttribute('data-category');
+
+                // Update active button state
+                credFilterButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-selected', 'false');
+                });
+                button.classList.add('active');
+                button.setAttribute('aria-selected', 'true');
+
+                filterHomeCredentials(category);
+
+                // Add haptic feedback
+                if (isTouchDevice && navigator.vibrate) {
+                    navigator.vibrate(30);
+                }
+            });
+        });
+
+        function filterHomeCredentials(category) {
+            // Filter kaim-feature (which is 'work')
+            if (kaimFeature) {
+                if (category === 'work') {
+                    kaimFeature.classList.remove('hidden');
+                    kaimFeature.classList.add('visible');
+                    kaimFeature.style.display = 'flex';
+                } else {
+                    kaimFeature.classList.remove('visible');
+                    kaimFeature.classList.add('hidden');
+                    // Use setTimeout to allow animation if needed, or just hide
+                    setTimeout(() => {
+                        if (kaimFeature.classList.contains('hidden')) {
+                            kaimFeature.style.display = 'none';
+                        }
+                    }, 300);
+                }
+            }
+
+            // Filter credential cards
+            credCards.forEach((card, index) => {
+                const cardCategory = card.getAttribute('data-category');
+                if (cardCategory === category) {
+                    card.classList.remove('hidden');
+                    card.classList.add('visible');
+                    card.style.display = 'block';
+                    // Staggered reveal
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1) translateY(0)';
+                    }, index * 50);
+                } else {
+                    card.classList.remove('visible');
+                    card.classList.add('hidden');
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.8) translateY(20px)';
+                    setTimeout(() => {
+                        if (card.classList.contains('hidden')) {
+                            card.style.display = 'none';
+                        }
+                    }, 300);
+                }
+            });
+        }
+    }
     
     // Credentials Tab Filtering
     const certTabs = document.querySelectorAll('.cert-tab-btn');

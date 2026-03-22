@@ -133,7 +133,7 @@ ul {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 2.5rem;
-    height: 500px;
+    height: auto;
 }
 
 .kaim-main {
@@ -161,11 +161,9 @@ ul {
 }
 
 .kaim-details-scroll {
-    overflow-y: auto;
+    overflow-y: visible;
     flex: 1;
     padding: 1rem;
-    scrollbar-width: thin;
-    scrollbar-color: var(--accent-primary) transparent;
 }
 
 .kaim-details-scroll::-webkit-scrollbar {
@@ -182,19 +180,7 @@ ul {
     height: auto;
 }
 
-.scroll-hint {
-    padding: 0.75rem;
-    background: rgba(251, 191, 36, 0.1);
-    color: var(--accent-primary);
-    text-align: center;
-    font-size: 0.8rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    border-top: 1px solid rgba(251, 191, 36, 0.1);
-}
+/* Removed scroll-hint styles */
 
 .kaim-info {
     text-align: center;
@@ -537,7 +523,7 @@ ul {
     border-radius: 12px;
 }
 
-.filter-btn {
+.filter-btn, .cred-filter-btn {
     padding: 0.75rem 1.5rem !important;
     border: 1px solid var(--glass-border) !important;
     background: rgba(255, 255, 255, 0.05) !important;
@@ -555,7 +541,9 @@ ul {
 }
 
 .filter-btn:hover,
-.filter-btn:focus {
+.filter-btn:focus,
+.cred-filter-btn:hover,
+.cred-filter-btn:focus {
     background: rgba(255, 255, 255, 0.1) !important;
     border-color: var(--accent-primary) !important;
     transform: translateY(-2px);
@@ -563,14 +551,16 @@ ul {
     box-shadow: 0 4px 12px rgba(0, 255, 255, 0.2);
 }
 
-.filter-btn.active {
+.filter-btn.active,
+.cred-filter-btn.active {
     background: var(--accent-primary) !important;
     color: #000 !important;
     border-color: var(--accent-primary) !important;
     box-shadow: 0 4px 16px rgba(251, 191, 36, 0.3);
 }
 
-.filter-btn:active {
+.filter-btn:active,
+.cred-filter-btn:active {
     transform: scale(0.98);
 }
 

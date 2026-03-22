@@ -95,7 +95,7 @@
                 </div>
                 <div class="hero-content">
                     <p align="center">
-                        <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3500&pause=1000&color=70A5FD&center=true&vCenter=true&random=false&width=600&lines=NLP+%26+Transformer+Models+%7C+Text+%26+Language+AI;Machine+Learning+%7C+Deep+Learning;Data+Science+%7C+Sentiment+Analysis;QA+Systems+%7C+Summarization;RAG+Architectures+%7C+LangChain+%7C+LLMs;Data+Pipelines+%7C+Feature+Engineering+%7C+MLOps;React+%7C+FastAPI+%7C+Full-Stack+Development;Turning+Raw+Data+Into+Actionable+Intelligence"
+                        <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3500&pause=1000&color=70A5FD&center=true&vCenter=true&random=false&width=600&lines=NLP+%26+Transformer+Models+%7C+LLMs+%26+RAG;Machine+Learning+%7C+Deep+Learning+%7C+Computer+Vision;Data+Science+%7C+Predictive+Modeling+%7C+Statistics;SQL+%26+Advanced+Data+Analysis+%7C+Visualization;AI+Model+Evaluation+%26+Deployment+%7C+MLOps;Python+%7C+FastAPI+%7C+Full-Stack+Development;Turning+Raw+Data+Into+Actionable+Intelligence"
                             alt="Typing SVG" />
                     </p>
                     <p class="reveal" style="animation-delay: 0.2s;">Building intelligent Machine Learning systems,
@@ -558,8 +558,20 @@
             <div class="container">
                 <h2 id="credentials-title" class="section-title">Credentials & Certifications</h2>
                 
-                <!-- KAIM Featured Section -->
-                <div class="kaim-feature glass reveal">
+                <!-- Credentials Category Filters -->
+                <div class="project-filters" role="tablist" aria-label="Credential categories">
+                    <button class="cred-filter-btn active" data-category="work" role="tab" aria-selected="true"
+                        aria-controls="credentials-grid">
+                        Skills & Work Experience
+                    </button>
+                    <button class="cred-filter-btn" data-category="academic" role="tab" aria-selected="false"
+                        aria-controls="credentials-grid">
+                        Academic
+                    </button>
+                </div>
+
+                <!-- KAIM Featured Section (Part of Work) -->
+                <div class="kaim-feature glass reveal" data-category="work">
                     <div class="kaim-hero">
                         <div class="kaim-main">
                             <img src="credentials/KAIM_main.jpg" alt="KAIM Master Certificate">
@@ -567,10 +579,6 @@
                         <div class="kaim-details-container">
                             <div class="kaim-details-scroll">
                                 <img src="credentials/KAIM_details.jpg" alt="KAIM Internship Details Performance">
-                            </div>
-                            <div class="scroll-hint">
-                                <span>Scroll for details</span>
-                                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M7 10l5 5 5-5z" fill="currentColor"/></svg>
                             </div>
                         </div>
                     </div>
@@ -581,8 +589,8 @@
                 </div>
 
                 <!-- Credentials Grid -->
-                <div class="credentials-grid">
-                    <div class="credential-card glass reveal" style="animation-delay: 0.1s;">
+                <div class="credentials-grid" id="credentials-grid">
+                    <div class="credential-card glass reveal" data-category="work" style="animation-delay: 0.1s;">
                         <div class="credential-img">
                             <img src="credentials/Elevvo_pathways_NLP.jpg" alt="Elevvo Pathways NLP Certificate">
                         </div>
@@ -592,7 +600,7 @@
                         </div>
                     </div>
 
-                    <div class="credential-card glass reveal" style="animation-delay: 0.2s;">
+                    <div class="credential-card glass reveal" data-category="work" style="animation-delay: 0.2s;">
                         <div class="credential-img">
                             <img src="credentials/Coursera_ML.jpg" alt="Coursera Machine Learning Certificate">
                         </div>
@@ -602,7 +610,7 @@
                         </div>
                     </div>
 
-                    <div class="credential-card glass reveal" style="animation-delay: 0.3s;">
+                    <div class="credential-card glass reveal" data-category="work" style="animation-delay: 0.3s;">
                         <div class="credential-img">
                             <img src="credentials/coursera_data_analytics.jpg" alt="Coursera Data Analytics Certificate">
                         </div>
@@ -612,7 +620,7 @@
                         </div>
                     </div>
 
-                    <div class="credential-card glass reveal" style="animation-delay: 0.4s;">
+                    <div class="credential-card glass reveal" data-category="work" style="animation-delay: 0.4s;">
                         <div class="credential-img">
                             <img src="credentials/Artificial Intelligence Fundamentals.jpg" alt="AI Fundamentals Certificate">
                         </div>
@@ -622,7 +630,7 @@
                         </div>
                     </div>
 
-                    <div class="credential-card glass reveal" style="animation-delay: 0.5s;">
+                    <div class="credential-card glass reveal" data-category="academic" style="animation-delay: 0.5s;">
                         <div class="credential-img">
                             <img src="credentials/Scholarship.png" alt="Scholarship Offer Certificate">
                         </div>
@@ -632,7 +640,7 @@
                         </div>
                     </div>
 
-                    <div class="credential-card glass reveal" style="animation-delay: 0.6s;">
+                    <div class="credential-card glass reveal" data-category="academic" style="animation-delay: 0.6s;">
                         <div class="credential-img">
                             <img src="credentials/EUEE Score.jpg" alt="EUEE Score Record">
                         </div>
@@ -642,7 +650,7 @@
                         </div>
                     </div>
 
-                    <div class="credential-card glass reveal" style="animation-delay: 0.7s;">
+                    <div class="credential-card glass reveal" data-category="academic" style="animation-delay: 0.7s;">
                         <div class="credential-img">
                             <img src="credentials/Honor_of_Top_Score.jpg" alt="Honor of Top Score Certificate">
                         </div>
@@ -651,6 +659,10 @@
                             <h4>Honor of Top Score</h4>
                         </div>
                     </div>
+                </div>
+
+                <div class="reveal" style="text-align: center; margin-top: 3rem;">
+                    <a href="credentials.html" class="btn secondary">See More Credentials</a>
                 </div>
             </div>
         </section>
