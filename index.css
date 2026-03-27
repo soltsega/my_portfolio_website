@@ -1071,18 +1071,19 @@ textarea.glass-input {
     }
 
     .project-card {
-        border-radius: 12px;
+        border-radius: 8px;
         overflow: hidden;
         width: 100% !important;
         max-width: none !important;
+        margin: 0 !important;
     }
 
     .project-img {
-        height: 120px;
+        height: 100px;
     }
 
     .project-info {
-        padding: 0.75rem;
+        padding: 0.4rem;
         position: relative;
         z-index: 5;
     }
@@ -1170,9 +1171,10 @@ textarea.glass-input {
 
     .hero-btns .btn {
         flex: 1;
-        min-width: 140px;
-        padding: 0.6rem 1rem;
-        font-size: 0.85rem;
+        min-width: 0;
+        max-width: 160px;
+        padding: 0.6rem 0.5rem;
+        font-size: 0.8rem;
     }
 
     .btn {
@@ -1231,8 +1233,14 @@ textarea.glass-input {
 }
 
 @media (max-width: 480px) {
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+
     .container {
-        padding: 0 0.5rem;
+        padding: 0 0.4rem;
         margin: 0 auto !important;
         width: 100% !important;
         max-width: 100% !important;
@@ -1254,8 +1262,8 @@ textarea.glass-input {
     }
 
     .profile-photo {
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
     }
 
     .navbar {
@@ -1291,7 +1299,7 @@ textarea.glass-input {
     }
 
     .project-info {
-        padding: 1.25rem;
+        padding: 0.5rem;
     }
 
     .projects-grid {
@@ -1335,7 +1343,14 @@ textarea.glass-input {
     }
 
     .project-info h3 {
-        font-size: 1.2rem;
+        font-size: 0.95rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .project-info p {
+        font-size: 0.75rem;
+        line-height: 1.3;
+        margin-bottom: 1rem;
     }
 
     .skills-grid {
@@ -1406,8 +1421,8 @@ textarea.glass-input {
     }
 
     .footer a {
-        margin: 0 8px;
-        font-size: 0.85rem;
+        margin: 0 4px;
+        font-size: 0.8rem;
     }
 }
 
