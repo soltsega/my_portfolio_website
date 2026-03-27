@@ -676,35 +676,19 @@ ul {
 }
 
 /* Project Specific Visuals */
-.visual-chatbot {
-    background: linear-gradient(135deg, #1e1b4b, #312e81);
-    position: relative;
-    overflow: hidden;
-}
-.visual-chatbot::before { content: '🤖'; }
-.visual-community::before { content: '👥'; }
-.visual-forecasting::before { content: '📈'; }
-.visual-portfolio::before { content: '💼'; }
-.visual-changepoint::before { content: '📊'; }
-.visual-credit::before { content: '🛡️'; }
-.visual-resume::before { content: '📄'; }
-.visual-pipeline::before { content: '⚙️'; }
-.visual-chronos::before { content: '📅'; }
-.visual-transformers::before { content: '⚛️'; }
-.visual-bank::before { content: '🏦'; }
-.visual-insurance::before { content: '📜'; }
-
-[class^="visual-"]::before {
-    position: absolute;
-    font-size: 5rem;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.12;
-    z-index: -1;
-    filter: grayscale(1) brightness(0.8);
-    pointer-events: none;
-}
+/* Project Specific Visuals - Background gradients only */
+.visual-chatbot { background: linear-gradient(135deg, #1e1b4b, #312e81); }
+.visual-community { background: linear-gradient(135deg, #064e3b, #065f46); }
+.visual-forecasting { background: linear-gradient(135deg, #4c1d95, #5b21b6); }
+.visual-portfolio { background: linear-gradient(135deg, #831843, #9d174d); }
+.visual-changepoint { background: linear-gradient(135deg, #7c2d12, #9a3412); }
+.visual-credit { background: linear-gradient(135deg, #111827, #1f2937); }
+.visual-resume { background: linear-gradient(135deg, #1e3a8a, #1e40af); }
+.visual-pipeline { background: linear-gradient(135deg, #3f6212, #4d7c0f); }
+.visual-chronos { background: linear-gradient(135deg, #451a03, #78350f); }
+.visual-transformers { background: linear-gradient(135deg, #164e63, #155e75); }
+.visual-bank { background: linear-gradient(135deg, #14532d, #166534); }
+.visual-insurance { background: linear-gradient(135deg, #312e81, #3730a3); }
 
 .project-info {
     padding: 1.5rem;
@@ -1078,13 +1062,8 @@ textarea.glass-input {
 
     .projects-grid {
         display: grid !important;
-<<<<<<< HEAD
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 0.75rem !important;
-=======
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
->>>>>>> 686e005e7549ebe86bf9856255527fb97825934f
+        gap: 0.5rem !important;
         width: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
@@ -1253,7 +1232,7 @@ textarea.glass-input {
 
 @media (max-width: 480px) {
     .container {
-        padding: 0 1rem;
+        padding: 0 0.5rem;
         margin: 0 auto !important;
         width: 100% !important;
         max-width: 100% !important;
@@ -1323,12 +1302,7 @@ textarea.glass-input {
     .project-card {
         width: 100% !important;
         max-width: 100% !important;
-<<<<<<< HEAD
         margin: 0 !important;
-=======
-        margin-left: 0 !important;
-        margin-right: 0 !important;
->>>>>>> 686e005e7549ebe86bf9856255527fb97825934f
     }
 
     .project-links {
