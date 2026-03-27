@@ -1247,8 +1247,10 @@ textarea.glass-input {
     }
 
     .hero h1 {
-        font-size: 2.2rem;
-        line-height: 1.1;
+        font-size: 1.6rem;
+        line-height: 1.2;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
     }
 
     .hero p {
@@ -1307,7 +1309,7 @@ textarea.glass-input {
     }
 
     .section-title {
-        font-size: 1.9rem;
+        font-size: 1.6rem;
         margin-bottom: 2rem;
     }
 
@@ -1351,6 +1353,10 @@ textarea.glass-input {
         grid-template-columns: repeat(3, 1fr);
         gap: 0.4rem;
         padding: 0.5rem;
+    }
+
+    .hero-image::before {
+        inset: -5px;
     }
 
     .hero-btns {
