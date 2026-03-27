@@ -1247,7 +1247,7 @@ textarea.glass-input {
     }
 
     .hero h1 {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         line-height: 1.2;
         overflow-wrap: break-word;
         word-wrap: break-word;
@@ -1309,7 +1309,7 @@ textarea.glass-input {
     }
 
     .section-title {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         margin-bottom: 2rem;
     }
 
@@ -1343,7 +1343,7 @@ textarea.glass-input {
     .project-links .btn {
         flex: 1;
         min-width: 0;
-        font-size: 0.7rem;
+        font-size: 0.65rem;
         padding: 0.5rem 0.25rem;
         min-height: 32px;
     }
@@ -1374,7 +1374,7 @@ textarea.glass-input {
     }
 
     .project-info h3 {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
         margin-bottom: 0.4rem;
     }
 
