@@ -1259,6 +1259,23 @@ textarea.glass-input {
 
     .hero-container {
         padding-top: 1rem;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+        width: 100%;
+    }
+
+    .hero-image {
+        flex: 0 0 auto;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero-content {
+        flex: 0 0 auto;
+        width: 100%;
     }
 
     .profile-photo {
@@ -1334,6 +1351,14 @@ textarea.glass-input {
         grid-template-columns: repeat(3, 1fr);
         gap: 0.4rem;
         padding: 0.5rem;
+    }
+
+    .hero-btns {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.6rem;
+        width: 100%;
     }
 
     .filter-btn {
