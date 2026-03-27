@@ -1078,8 +1078,13 @@ textarea.glass-input {
 
     .projects-grid {
         display: grid !important;
+<<<<<<< HEAD
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 0.75rem !important;
+=======
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+>>>>>>> 686e005e7549ebe86bf9856255527fb97825934f
         width: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
@@ -1318,7 +1323,12 @@ textarea.glass-input {
     .project-card {
         width: 100% !important;
         max-width: 100% !important;
+<<<<<<< HEAD
         margin: 0 !important;
+=======
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+>>>>>>> 686e005e7549ebe86bf9856255527fb97825934f
     }
 
     .project-links {
