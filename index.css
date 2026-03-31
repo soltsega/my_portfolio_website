@@ -984,6 +984,14 @@ textarea.glass-input {
     fill: currentColor;
 }
 
+.footer-socials a.social-github:hover, .footer-socials a.social-github:focus { color: #ffffff; border-color: #ffffff; background: rgba(255, 255, 255, 0.1); }
+.footer-socials a.social-linkedin:hover, .footer-socials a.social-linkedin:focus { color: #0077b5; border-color: #0077b5; background: rgba(0, 119, 181, 0.1); }
+.footer-socials a.social-substack:hover, .footer-socials a.social-substack:focus { color: #ff6719; border-color: #ff6719; background: rgba(255, 103, 25, 0.1); }
+.footer-socials a.social-x:hover, .footer-socials a.social-x:focus { color: #ffffff; border-color: #ffffff; background: rgba(255, 255, 255, 0.1); }
+.footer-socials a.social-telegram:hover, .footer-socials a.social-telegram:focus { color: #0088cc; border-color: #0088cc; background: rgba(0, 136, 204, 0.1); }
+.footer-socials a.social-leetcode:hover, .footer-socials a.social-leetcode:focus { color: #ffa116; border-color: #ffa116; background: rgba(255, 161, 22, 0.1); }
+.footer-socials a.social-email:hover, .footer-socials a.social-email:focus { color: #ea4335; border-color: #ea4335; background: rgba(234, 67, 53, 0.1); }
+
 @media (max-width: 768px) {
     .hero-container {
         flex-direction: column;
