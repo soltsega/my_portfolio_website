@@ -42,6 +42,26 @@ a {
     transition: 0.3s ease;
 }
 
+/* External Link Pointer */
+a[target="_blank"]:not(.btn):not(.footer-socials a):not(.social-icon a)::after {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 6px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'%3E%3C/path%3E%3Cpolyline points='15 3 21 3 21 9'%3E%3C/polyline%3E%3Cline x1='10' y1='14' x2='21' y2='3'%3E%3C/line%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    opacity: 0.7;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+a[target="_blank"]:not(.btn):not(.footer-socials a):not(.social-icon a):hover::after {
+    transform: translate(2px, -2px);
+    opacity: 1;
+}
+
 ul {
     list-style: none;
 }
@@ -963,6 +983,14 @@ textarea.glass-input {
     height: 20px;
     fill: currentColor;
 }
+
+.footer-socials a.social-github:hover, .footer-socials a.social-github:focus { color: #ffffff; border-color: #ffffff; background: rgba(255, 255, 255, 0.1); }
+.footer-socials a.social-linkedin:hover, .footer-socials a.social-linkedin:focus { color: #0077b5; border-color: #0077b5; background: rgba(0, 119, 181, 0.1); }
+.footer-socials a.social-substack:hover, .footer-socials a.social-substack:focus { color: #ff6719; border-color: #ff6719; background: rgba(255, 103, 25, 0.1); }
+.footer-socials a.social-x:hover, .footer-socials a.social-x:focus { color: #ffffff; border-color: #ffffff; background: rgba(255, 255, 255, 0.1); }
+.footer-socials a.social-telegram:hover, .footer-socials a.social-telegram:focus { color: #0088cc; border-color: #0088cc; background: rgba(0, 136, 204, 0.1); }
+.footer-socials a.social-leetcode:hover, .footer-socials a.social-leetcode:focus { color: #ffa116; border-color: #ffa116; background: rgba(255, 161, 22, 0.1); }
+.footer-socials a.social-email:hover, .footer-socials a.social-email:focus { color: #ea4335; border-color: #ea4335; background: rgba(234, 67, 53, 0.1); }
 
 @media (max-width: 768px) {
     .hero-container {
