@@ -1,11 +1,12 @@
 import React from 'react';
-import { Github, Linkedin, Mail, Twitter, Globe } from 'lucide-react';
+import { Mail, Globe, ExternalLink } from 'lucide-react';
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
   const socialLinks = [
-    { name: 'Github', url: 'https://github.com/soltsega', icon: <Github size={20} />, class: 'social-github' },
-    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/solomontsega/', icon: <Linkedin size={20} />, class: 'social-linkedin' },
-    { name: 'Twitter', url: 'https://x.com/SolomonTse567', icon: <Twitter size={20} />, class: 'social-x' },
+    { name: 'GitHub', url: 'https://github.com/soltsega', icon: <FaGithub size={20} />, class: 'social-github' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/solomontsega/', icon: <FaLinkedin size={20} />, class: 'social-linkedin' },
+    { name: 'Twitter', url: 'https://x.com/SolomonTse567', icon: <FaTwitter size={20} />, class: 'social-x' },
     { name: 'Email', url: 'mailto:tsegasolomon538@gmail.com', icon: <Mail size={20} />, class: 'social-email' },
   ];
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa';
 
 const ProjectCard = ({ project }) => {
   return (
@@ -26,7 +27,7 @@ const ProjectCard = ({ project }) => {
           )}
           {project.code_link && (
             <a href={project.code_link} target="_blank" rel="noopener noreferrer" className="btn secondary small">
-              <Github size={16} /> Code
+              <FaGithub size={16} /> Code
             </a>
           )}
         </div>
