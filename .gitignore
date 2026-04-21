@@ -25,3 +25,13 @@ dist-ssr
 backend/venv/
 .env
 7776b2e0-1891-11f1-9f86-2b1d062e8767.tar.gz
+backend/app/__pycache__/auth.cpython-311.pyc
+backend/app/__pycache__/auth.cpython-311.pyc
+backend/app/__pycache__/auth.cpython-311.pyc
+.venv/
+_pytest_cache/
+.pytest_cache/
+portfolio.db
+backend/app/__pycache__/auth.cpython-311.pyc
+backend/app/__pycache__/auth.cpython-311.pyc
+backend/app/__pycache__/seed.cpython-311.pyc
