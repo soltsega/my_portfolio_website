@@ -91,8 +91,6 @@ export default function Credentials() {
     [credentials, activeCategory],
   );
 
-  const workIntroIndex = filteredCredentials.findIndex((credential) => credential.title === 'STEM Computer Training');
-
   return (
     <div className="container credentials-page">
       <motion.header
@@ -139,6 +137,14 @@ export default function Credentials() {
         >
           Personal Development
         </button>
+        <button
+          type="button"
+          className={`cert-tab-btn ${activeCategory === 'stem-exposure' ? 'active' : ''}`}
+          aria-selected={activeCategory === 'stem-exposure'}
+          onClick={() => setActiveCategory('stem-exposure')}
+        >
+          STEM Exposure
+        </button>
       </motion.div>
 
       <div className="cert-container">
@@ -148,19 +154,8 @@ export default function Credentials() {
         {!loading &&
           !error &&
           filteredCredentials.map((credential, index) => {
-            const showWorkHeading = activeCategory === 'work' && index === workIntroIndex && workIntroIndex > 0;
-
             return (
               <div key={credential.id}>
-                {showWorkHeading ? (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    className="cert-section-heading"
-                  >
-                    <h2>High School Exposures</h2>
-                  </motion.div>
-                ) : null}
                 <CredentialRow credential={credential} reverse={index % 2 === 1} />
               </div>
             );
