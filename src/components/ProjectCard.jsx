@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { projectVisuals } from '../data/siteContent';
 
 function formatCategory(category) {
@@ -21,10 +22,13 @@ export default function ProjectCard({ project, delay = 0 }) {
   const projectLink = project.live_link || project.code_link;
 
   return (
-    <article
-      className="glass project-card reveal visible"
+    <motion.article
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.6, delay }}
+      className="glass project-card"
       data-category={project.category}
-      style={{ animationDelay: `${delay}s` }}
     >
       <div className={`project-img ${visualClass}`} aria-hidden="true" />
       <div className="project-info">
@@ -47,6 +51,6 @@ export default function ProjectCard({ project, delay = 0 }) {
           ) : null}
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }

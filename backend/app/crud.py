@@ -9,7 +9,7 @@ def get_projects(db: Session, category: str = None):
     return query.order_by(models.Project.order.asc()).all()
 
 def create_project(db: Session, project: schemas.ProjectCreate):
-    db_project = models.Project(**project.dict())
+    db_project = models.Project(**project.model_dump())
     db.add(db_project)
     db.commit()
     db.refresh(db_project)
@@ -18,7 +18,7 @@ def create_project(db: Session, project: schemas.ProjectCreate):
 def update_project(db: Session, project_id: int, project: schemas.ProjectCreate):
     db_project = db.query(models.Project).filter(models.Project.id == project_id).first()
     if db_project:
-        for key, value in project.dict().items():
+        for key, value in project.model_dump().items():
             setattr(db_project, key, value)
         db.commit()
         db.refresh(db_project)
@@ -39,7 +39,7 @@ def get_credentials(db: Session, category: str = None):
     return query.order_by(models.Credential.order.asc()).all()
 
 def create_credential(db: Session, credential: schemas.CredentialCreate):
-    db_cred = models.Credential(**credential.dict())
+    db_cred = models.Credential(**credential.model_dump())
     db.add(db_cred)
     db.commit()
     db.refresh(db_cred)
@@ -48,7 +48,7 @@ def create_credential(db: Session, credential: schemas.CredentialCreate):
 def update_credential(db: Session, cred_id: int, credential: schemas.CredentialCreate):
     db_cred = db.query(models.Credential).filter(models.Credential.id == cred_id).first()
     if db_cred:
-        for key, value in credential.dict().items():
+        for key, value in credential.model_dump().items():
             setattr(db_cred, key, value)
         db.commit()
         db.refresh(db_cred)
@@ -63,7 +63,7 @@ def delete_credential(db: Session, cred_id: int):
 
 # Messages
 def create_message(db: Session, message: schemas.ContactMessageCreate):
-    db_msg = models.ContactMessage(**message.dict())
+    db_msg = models.ContactMessage(**message.model_dump())
     db.add(db_msg)
     db.commit()
     db.refresh(db_msg)

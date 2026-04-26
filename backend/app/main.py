@@ -1,4 +1,5 @@
 import os
+from contextlib import asynccontextmanager
 from datetime import timedelta
 from typing import List
 
@@ -9,11 +10,18 @@ from sqlalchemy.orm import Session
 
 from . import models, schemas, crud, auth, database
 from .database import engine, get_db
+from .seed import seed_db
 
-# Create database tables
-models.Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="Solomon Tsega Portfolio API")
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Create tables and seed data on startup
+    models.Base.metadata.create_all(bind=engine)
+    seed_db()
+    yield
+
+
+app = FastAPI(title="Solomon Tsega Portfolio API", lifespan=lifespan)
 
 # CORS configuration
 app.add_middleware(

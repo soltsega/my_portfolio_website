@@ -256,6 +256,30 @@ CREDENTIALS = [
         "image_url": "/credentials/EUEE Score.jpg",
         "order": 17,
     },
+    {
+        "title": "Server-side Development with FastAPI",
+        "subtitle": "Coursera Certification",
+        "description": "Mastery of high-performance API development using Python and FastAPI.\nImplementation of asynchronous programming, data validation with Pydantic, and dependency injection.\nDeployment of scalable web services with automated documentation and robust security features.",
+        "category": "work",
+        "image_url": "/credentials/Coursera-fastapi.jpg",
+        "order": 18,
+    },
+    {
+        "title": "Professional Business Communications",
+        "subtitle": "Professional Development",
+        "description": "Mastery of professional communication strategies for effective workplace interaction.\nExpertise in drafting technical reports, delivering presentations, and managing cross-functional stakeholder relations.\nFocus on clarity, professional etiquette, and strategic information dissemination.",
+        "category": "personal-development",
+        "image_url": "/credentials/Business communications.jpg",
+        "order": 19,
+    },
+    {
+        "title": "The Science of Well-Being",
+        "subtitle": "Yale University | Offered through Coursera",
+        "description": "Exploration of psychological research on happiness and human flourishing.\nImplementation of evidence-based strategies for behavioral change and habit formation.\nApplication of positive psychology principles to enhance productivity and professional resilience.",
+        "category": "personal-development",
+        "image_url": "/credentials/coursera-science of wellbeing.jpg",
+        "order": 20,
+    },
 ]
 
 

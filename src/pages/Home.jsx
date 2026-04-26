@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
 import ProjectCard from '../components/ProjectCard';
 import { messageApi, projectApi } from '../api';
@@ -41,6 +42,13 @@ function SkillIcon({ type }) {
 }
 
 const initialForm = { name: '', email: '', message: '' };
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-50px' },
+  transition: { duration: 0.8 }
+};
 
 export default function Home() {
   const [projects, setProjects] = useState([]);
@@ -164,13 +172,18 @@ export default function Home() {
     <>
       <header id="home" className="hero section" role="banner">
         <div className="container hero-container">
-          <div className="hero-image reveal">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="hero-image"
+          >
             <img
               src="https://avatars.githubusercontent.com/u/202438118?v=4"
               alt="Solomon Tsega"
               className="profile-photo"
             />
-          </div>
+          </motion.div>
           <div className="hero-content">
             <p align="center">
               <picture>
@@ -185,11 +198,20 @@ export default function Home() {
                 />
               </picture>
             </p>
-            <p className="reveal">
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 1 }}
+            >
               Building intelligent Machine Learning systems, uncovering deep Data Science insights,
               and crafting premium, data-driven Web experiences.
-            </p>
-            <div className="hero-btns reveal">
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+              className="hero-btns"
+            >
               <a href="#projects" className="btn primary">
                 View My Work
               </a>
@@ -204,18 +226,25 @@ export default function Home() {
               >
                 GitHub
               </a>
-            </div>
+            </motion.div>
           </div>
         </div>
       </header>
 
       <section id="projects" className="section" aria-labelledby="projects-title">
         <div className="container">
-          <h2 id="projects-title" className="section-title">
+          <motion.h2 {...fadeInUp} id="projects-title" className="section-title">
             Featured Projects
-          </h2>
+          </motion.h2>
 
-          <div className="project-filters" role="tablist" aria-label="Project categories">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="project-filters" 
+            role="tablist" 
+            aria-label="Project categories"
+          >
             {projectCategories.map((category) => (
               <button
                 key={category.id}
@@ -228,7 +257,7 @@ export default function Home() {
                 {category.name}
               </button>
             ))}
-          </div>
+          </motion.div>
 
           <div className="projects-grid" id="projects-grid" role="tabpanel">
             {projectsLoading ? <div className="loading">Loading projects...</div> : null}
@@ -250,7 +279,7 @@ export default function Home() {
 
       <section id="about" className="section" aria-labelledby="about-title">
         <div className="container about-content">
-          <div className="reveal">
+          <motion.div {...fadeInUp}>
             <h2 id="about-title" className="section-title">
               About Me
             </h2>
@@ -259,21 +288,24 @@ export default function Home() {
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <section id="skills" className="section" aria-labelledby="skills-title">
         <div className="container">
-          <h2 id="skills-title" className="section-title">
+          <motion.h2 {...fadeInUp} id="skills-title" className="section-title">
             Technical Expertise
-          </h2>
+          </motion.h2>
           <div className="skills-container">
             {skillGroups.map((group, index) => (
-              <div
+              <motion.div
                 key={group.title}
-                className="glass skill-category reveal"
-                style={{ animationDelay: `${index * 0.2}s` }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="glass skill-category"
               >
                 <div className="category-header">
                   <div className="category-icon">
@@ -288,7 +320,7 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -296,27 +328,32 @@ export default function Home() {
 
       <section id="credentials" className="section" aria-labelledby="credentials-title">
         <div className="container">
-          <h2 id="credentials-title" className="section-title">
+          <motion.h2 {...fadeInUp} id="credentials-title" className="section-title">
             Credentials & Certifications
-          </h2>
-          <p className="credentials-intro">
+          </motion.h2>
+          <motion.p {...fadeInUp} className="credentials-intro">
             View my complete history of academic excellence, professional certifications, and
             honor awards.
-          </p>
-          <div className="project-filters reveal credentials-cta">
+          </motion.p>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="project-filters credentials-cta"
+          >
             <a href="/credentials" className="btn primary">
               Skills & Work Experience
             </a>
             <a href="/credentials" className="btn secondary">
               Academic Credentials
             </a>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <section id="contact" className="section" aria-labelledby="contact-title">
         <div className="container contact-container">
-          <div className="reveal">
+          <motion.div {...fadeInUp}>
             <h2 id="contact-title" className="section-title">
               Let&apos;s Connect
             </h2>
@@ -379,7 +416,7 @@ export default function Home() {
                 </button>
               </form>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>

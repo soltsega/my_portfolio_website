@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
 import { credentialApi } from '../api';
 
@@ -12,7 +13,14 @@ function CredentialRow({ credential, reverse = false }) {
   const bullets = parseDescription(credential.description);
 
   return (
-    <div className={`cert-row visible reveal ${reverse ? 'reverse' : ''}`} data-category={credential.category}>
+    <motion.div
+      initial={{ opacity: 0, x: reverse ? 50 : -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.8 }}
+      className={`cert-row ${reverse ? 'reverse' : ''}`}
+      data-category={credential.category}
+    >
       <div className="cert-desc">
         <h3>{credential.title}</h3>
         {credential.subtitle ? <p>{credential.subtitle}</p> : null}
@@ -34,7 +42,7 @@ function CredentialRow({ credential, reverse = false }) {
       <div className="cert-img">
         <img src={credential.image_url} alt={credential.title} />
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -87,7 +95,11 @@ export default function Credentials() {
 
   return (
     <div className="container credentials-page">
-      <header className="credentials-hero reveal">
+      <motion.header
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="credentials-hero"
+      >
         <h1 className="section-title">
           Academic &amp; Professional <span className="gradient-text">Credentials</span>
         </h1>
@@ -95,9 +107,14 @@ export default function Credentials() {
           A journey of continuous learning, academic excellence, and technical specialization.
           Here are the certifications and honors I&apos;ve earned along the way.
         </p>
-      </header>
+      </motion.header>
 
-      <div className="cert-tabs reveal">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.3 }}
+        className="cert-tabs"
+      >
         <button
           type="button"
           className={`cert-tab-btn ${activeCategory === 'work' ? 'active' : ''}`}
@@ -114,7 +131,15 @@ export default function Credentials() {
         >
           Academic
         </button>
-      </div>
+        <button
+          type="button"
+          className={`cert-tab-btn ${activeCategory === 'personal-development' ? 'active' : ''}`}
+          aria-selected={activeCategory === 'personal-development'}
+          onClick={() => setActiveCategory('personal-development')}
+        >
+          Personal Development
+        </button>
+      </motion.div>
 
       <div className="cert-container">
         {loading ? <div className="loading">Loading credentials...</div> : null}
@@ -128,9 +153,13 @@ export default function Credentials() {
             return (
               <div key={credential.id}>
                 {showWorkHeading ? (
-                  <div className="cert-section-heading reveal">
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    className="cert-section-heading"
+                  >
                     <h2>High School Exposures</h2>
-                  </div>
+                  </motion.div>
                 ) : null}
                 <CredentialRow credential={credential} reverse={index % 2 === 1} />
               </div>

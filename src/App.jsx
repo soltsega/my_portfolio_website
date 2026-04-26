@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import AdminDashboard from './pages/AdminDashboard';
+import AdminLogin from './pages/AdminLogin';
 import Credentials from './pages/Credentials';
 import Home from './pages/Home';
 import './index.css';
@@ -31,26 +33,7 @@ function AppEffects() {
     return () => window.clearTimeout(timer);
   }, [location.pathname, location.hash]);
 
-  useEffect(() => {
-    const revealElements = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px',
-      },
-    );
 
-    revealElements.forEach((element) => observer.observe(element));
-
-    return () => observer.disconnect();
-  }, [location.pathname]);
 
   return null;
 }
@@ -65,6 +48,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/credentials" element={<Credentials />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
           </Routes>
         </main>
         <Footer />
