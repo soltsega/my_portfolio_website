@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { credentialApi } from '../api';
 
 function parseDescription(description) {
@@ -47,10 +48,19 @@ function CredentialRow({ credential, reverse = false }) {
 }
 
 export default function Credentials() {
+  const location = useLocation();
   const [credentials, setCredentials] = useState([]);
   const [activeCategory, setActiveCategory] = useState('work');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const tab = params.get('tab');
+    if (tab) {
+      setActiveCategory(tab);
+    }
+  }, [location.search]);
 
   useEffect(() => {
     document.title = 'Credentials | Solomon Tsega';

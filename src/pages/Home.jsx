@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
 import ProjectCard from '../components/ProjectCard';
-import { messageApi, projectApi } from '../api';
+import { projectApi } from '../api';
 import { aboutParagraphs, projectCategories, skillGroups } from '../data/siteContent';
 
 function SkillIcon({ type }) {
@@ -41,7 +41,7 @@ function SkillIcon({ type }) {
   }
 }
 
-const initialForm = { name: '', email: '', message: '' };
+
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -54,8 +54,6 @@ export default function Home() {
   const [projects, setProjects] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [projectsLoading, setProjectsLoading] = useState(true);
-  const [formData, setFormData] = useState(initialForm);
-  const [errors, setErrors] = useState({});
   const [status, setStatus] = useState({ type: 'idle', message: '' });
 
   useEffect(() => {
@@ -102,71 +100,7 @@ export default function Home() {
     return projects.filter((project) => project.category === selectedCategory);
   }, [projects, selectedCategory]);
 
-  function validate(values) {
-    const nextErrors = {};
 
-    if (!values.name.trim()) {
-      nextErrors.name = 'Please enter your name';
-    } else if (values.name.trim().length < 2) {
-      nextErrors.name = 'Name must be at least 2 characters';
-    }
-
-    if (!values.email.trim()) {
-      nextErrors.email = 'Please enter your email';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) {
-      nextErrors.email = 'Please enter a valid email address';
-    }
-
-    if (!values.message.trim()) {
-      nextErrors.message = 'Please enter your message';
-    } else if (values.message.trim().length < 10) {
-      nextErrors.message = 'Message must be at least 10 characters';
-    }
-
-    return nextErrors;
-  }
-
-  async function handleSubmit(event) {
-    event.preventDefault();
-
-    const validationErrors = validate(formData);
-    setErrors(validationErrors);
-
-    if (Object.keys(validationErrors).length > 0) {
-      return;
-    }
-
-    setStatus({ type: 'sending', message: '' });
-
-    try {
-      await messageApi.send({
-        name: formData.name.trim(),
-        email: formData.email.trim(),
-        message: formData.message.trim(),
-      });
-
-      setFormData(initialForm);
-      setErrors({});
-      setStatus({
-        type: 'success',
-        message: "Thank you for your message! I'll get back to you soon.",
-      });
-    } catch (error) {
-      setStatus({
-        type: 'error',
-        message: 'Failed to send message. Please try again.',
-      });
-    }
-  }
-
-  function updateField(event) {
-    const { name, value } = event.target;
-    setFormData((current) => ({ ...current, [name]: value }));
-
-    if (errors[name]) {
-      setErrors((current) => ({ ...current, [name]: '' }));
-    }
-  }
 
   return (
     <>
@@ -341,11 +275,17 @@ export default function Home() {
             viewport={{ once: true }}
             className="project-filters credentials-cta"
           >
-            <a href="/credentials" className="btn primary">
+            <a href="/credentials?tab=work" className="btn primary">
               Skills & Work Experience
             </a>
-            <a href="/credentials" className="btn secondary">
-              Academic Credentials
+            <a href="/credentials?tab=academic" className="btn secondary">
+              Academic
+            </a>
+            <a href="/credentials?tab=personal-development" className="btn secondary">
+              Personal Development
+            </a>
+            <a href="/credentials?tab=stem-exposure" className="btn secondary">
+              STEM Exposure
             </a>
           </motion.div>
         </div>
@@ -360,61 +300,20 @@ export default function Home() {
             <p className="contact-intro">
               Feel free to reach out for collaborations or just to say hi!
             </p>
-            <div className="glass contact-card">
-              {status.type === 'success' ? (
-                <div className="success-message">
-                  <p>{status.message}</p>
-                </div>
-              ) : null}
-
-              <form className="contact-form" noValidate onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label htmlFor="name">Name *</label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    className={`glass-input ${errors.name ? 'error' : ''}`}
-                    value={formData.name}
-                    onChange={updateField}
-                    aria-invalid={Boolean(errors.name)}
-                  />
-                  <span className="error-message">{errors.name || ''}</span>
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="email">Email *</label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    className={`glass-input ${errors.email ? 'error' : ''}`}
-                    value={formData.email}
-                    onChange={updateField}
-                    aria-invalid={Boolean(errors.email)}
-                  />
-                  <span className="error-message">{errors.email || ''}</span>
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="message">Message *</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    className={`glass-input ${errors.message ? 'error' : ''}`}
-                    value={formData.message}
-                    onChange={updateField}
-                    aria-invalid={Boolean(errors.message)}
-                  />
-                  <span className="error-message">{errors.message || ''}</span>
-                </div>
-
-                {status.type === 'error' ? <span className="error-message">{status.message}</span> : null}
-
-                <button type="submit" className="btn primary submit-btn" disabled={status.type === 'sending'}>
-                  {status.type === 'sending' ? 'Sending...' : 'Send Message'}
-                </button>
-              </form>
+            <div className="glass contact-card contact-mailto">
+              <div className="mailto-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+              </div>
+              <p className="mailto-label">Send me an email at</p>
+              <a
+                href="mailto:tsegasolomon538@gmail.com"
+                className="mailto-link"
+              >
+                tsegasolomon538@gmail.com
+              </a>
             </div>
           </motion.div>
         </div>
